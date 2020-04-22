@@ -10,10 +10,8 @@ func longestCommonSequence(a []byte, b []byte) [3]int {
 		m[i] = make([]int, columns)
 	}
 	lrc := [3]int{}
-	for i := 0 ; i < len(a); i++ {
-		for j := 0; j < len(b); j++ {
-			vA := a[i]
-			vB := b[j]
+	for i, vA := range a {
+		for j, vB := range b {
 			if vA == vB {
 				l := m[i][j] + 1
 				m[i+1][j+1] = l
@@ -65,10 +63,10 @@ func RatcliffObershelpMetric(a string, b string) float64 {
 // RatcliffObershelpMetric2 calculates strings similarity from two byte arrays (chars)
 func RatcliffObershelpMetric2(a []byte, b []byte) float64 {
 	if a == nil || b == nil || len(a) == 0 || len(b) == 0 {
-		return 0.0
+		return float64(0)
 	}
 	if sameElements(a, b) {
-		return 1.0
+		return float64(1)
 	}
 	totalSize := 0
 	for _, v := range commonSequences(a, b) {

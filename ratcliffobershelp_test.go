@@ -29,10 +29,22 @@ var ratcliffObershelpMetricTests = []struct {
 		expected: float64(1),
 	},
 	{
-		title: "should return half similarity ",
+		title: "should compute similarity with words with punctuation",
 		s1: "hello!",
 		s2: "helka?",
 		expected: float64(0.5),
+	},
+	{
+		title: "should compute similarity for accented words",
+		s1: "résumé",
+		s2: "resumé",
+		expected: float64(0.8),
+	},
+	{
+		title: "should compute exact similarity for the same word",
+		s1: "résumé",
+		s2: "résumé",
+		expected: float64(1),
 	},
 }
 
