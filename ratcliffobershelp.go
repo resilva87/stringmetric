@@ -6,7 +6,7 @@ func longestCommonSequence(a []byte, b []byte) [3]int {
 	rows := len(a) + 1
 	columns := len(b) + 1
 	m := make([][]int, rows)
-	for i := 0 ; i < rows ; i++ {
+	for i := 0; i < rows; i++ {
 		m[i] = make([]int, columns)
 	}
 	lrc := [3]int{}
@@ -72,5 +72,5 @@ func RatcliffObershelpMetric2(a []byte, b []byte) float64 {
 	for _, v := range commonSequences(a, b) {
 		totalSize += len(v)
 	}
-	return float64(2.0 * totalSize) / float64(len(a) + len(b))
+	return float64(2.0*totalSize) / float64(len(a)+len(b))
 }

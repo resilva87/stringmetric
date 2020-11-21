@@ -4,54 +4,55 @@ import (
 	"testing"
 )
 
-var ratcliffObershelpMetricTests = []struct {
+// TODO all tests are bigrams, should test for other values as well
+var sorensenDiceMetricTests = []struct {
 	title    string
+	N        int
 	s1       string
 	s2       string
 	expected float64
 }{
 	{
 		title:    "should return no similarity if s1 is empty",
+		N:        1,
 		s1:       "",
 		s2:       "hello",
 		expected: float64(0),
 	},
 	{
 		title:    "should return no similarity if s2 is empty",
+		N:        1,
 		s1:       "hello",
 		s2:       "",
 		expected: float64(0),
 	},
 	{
 		title:    "should return full similarity if s1 and s2 have the same elements",
+		N:        2,
 		s1:       "hello",
 		s2:       "hello",
 		expected: float64(1),
 	},
 	{
 		title:    "should compute similarity with words with punctuation",
-		s1:       "hello!",
-		s2:       "helka?",
-		expected: float64(0.5),
+		N:        2,
+		s1:       "night!",
+		s2:       "natch?",
+		expected: float64(0),
 	},
 	{
 		title:    "should compute similarity for accented words",
+		N:        2,
 		s1:       "résumé",
 		s2:       "resumé",
-		expected: float64(0.8),
-	},
-	{
-		title:    "should compute exact similarity for the same word",
-		s1:       "résumé",
-		s2:       "résumé",
-		expected: float64(1),
+		expected: float64(0.6),
 	},
 }
 
-func TestRatcliffObershelpMetric(t *testing.T) {
-	for _, test := range ratcliffObershelpMetricTests {
+func TestSorensenDiceMetric(t *testing.T) {
+	for _, test := range sorensenDiceMetricTests {
 		t.Log(test.title)
-		result := RatcliffObershelpMetric(test.s1, test.s2)
+		result := SorensenDiceMetric(test.N, test.s1, test.s2)
 		if result != test.expected {
 			t.Errorf("result doesn't match, expected %v, got: %v", test.expected, result)
 		}
