@@ -2,7 +2,7 @@ package runes
 
 import "unicode/utf8"
 
-// MakeSlice lorem ipsum...
+// MakeSlice will turn a string into a slice of runes
 func MakeSlice(str string) []rune {
 	var output []rune
 	for len(str) > 0 {

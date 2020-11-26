@@ -4,7 +4,8 @@ import (
 	"github.com/resilva87/stringmetric/runes"
 )
 
-// HammingMetric lorem ipsum
+// HammingMetric calculates the hamming distance between
+// two strings
 func HammingMetric(a string, b string) float64 {
 	aRunes := runes.MakeSlice(a)
 	bRunes := runes.MakeSlice(b)
