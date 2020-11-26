@@ -16,6 +16,20 @@ func sameElements(a []byte, b []byte) bool {
 	return true
 }
 
+// sameRunes checks if two rune slices have the same elements in order
+func sameRunes(a []rune, b []rune) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i, v := range a {
+		bValue := b[i]
+		if v != bValue {
+			return false
+		}
+	}
+	return true
+}
+
 // takeRight takes a given number of elements from a byte array, starting
 // from len(array) - size until len(array)
 func takeRight(v []byte, size int) []byte {
