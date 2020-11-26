@@ -65,7 +65,7 @@ func RatcliffObershelpMetric2(a []byte, b []byte) float64 {
 	if a == nil || b == nil || len(a) == 0 || len(b) == 0 {
 		return float64(0)
 	}
-	if sameElements(a, b) {
+	if sameBytes(a, b) {
 		return float64(1)
 	}
 	totalSize := 0
