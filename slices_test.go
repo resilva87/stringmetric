@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-var sameElementsTests = []struct {
+var sameBytesTests = []struct {
 	title    string
 	a        []byte
 	b        []byte
@@ -67,10 +67,10 @@ var sameElementsTests = []struct {
 	},
 }
 
-func TestSameElements(t *testing.T) {
-	for _, test := range sameElementsTests {
+func TestSameBytes(t *testing.T) {
+	for _, test := range sameBytesTests {
 		t.Log(test.title)
-		result := sameElements(test.a, test.b)
+		result := sameBytes(test.a, test.b)
 		if result != test.expected {
 			t.Errorf("result doesn't match, expected %v, got: %v", test.expected, result)
 		}

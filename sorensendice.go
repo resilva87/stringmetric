@@ -10,7 +10,7 @@ func SorensenDiceMetric(n int, a string, b string) float64 {
 	if n <= 0 || len(a) == 0 || len(b) == 0 || len(a) < n || len(b) < n {
 		return float64(0)
 	}
-	if sameElements([]byte(a), []byte(b)) {
+	if sameBytes([]byte(a), []byte(b)) {
 		return float64(1)
 	}
 	tokenizer := ngram.NewTokenizer(n)

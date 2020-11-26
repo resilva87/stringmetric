@@ -2,8 +2,8 @@ package stringmetric
 
 import "reflect"
 
-// sameElements checks if two byte arrays have the same elements in order
-func sameElements(a []byte, b []byte) bool {
+// sameBytes checks if two byte arrays have the same elements in order
+func sameBytes(a []byte, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
