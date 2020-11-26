@@ -2,8 +2,6 @@ package ngram
 
 import (
 	"errors"
-
-	"github.com/resilva87/stringmetric/runes"
 )
 
 type tokenizer interface {
@@ -30,7 +28,7 @@ func NewTokenizer(n int) *Tokenizer {
 // Tokenize will break the string in tokens given a positive integer
 // For instance, the word "lorem" tokenized in 3 results in ['lor', 'ore', 'rem']
 func (t *Tokenizer) Tokenize(value string) ([]string, error) {
-	internalRunes := runes.MakeSlice(value)
+	internalRunes := []rune(value)
 	vLen := len(internalRunes)
 	if t.N <= 0 || vLen < t.N {
 		return nil, ErrInvalidParams

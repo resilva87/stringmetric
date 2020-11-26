@@ -1,14 +1,10 @@
 package stringmetric
 
-import (
-	"github.com/resilva87/stringmetric/runes"
-)
-
 // HammingMetric calculates the hamming distance between
 // two strings
 func HammingMetric(a string, b string) float64 {
-	aRunes := runes.MakeSlice(a)
-	bRunes := runes.MakeSlice(b)
+	aRunes := []rune(a)
+	bRunes := []rune(b)
 
 	if len(aRunes) == 0 || len(bRunes) == 0 || len(aRunes) != len(bRunes) {
 		return float64(-1)
