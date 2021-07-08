@@ -1,5 +1,7 @@
 # stringmetric
 
+[![codecov](https://codecov.io/gh/resilva87/stringmetric/branch/master/graph/badge.svg?token=8CVLU2NS3W)](https://codecov.io/gh/resilva87/stringmetric)
+
 String metrics and phonetic algorithms for Go (based on the hyper cool [rockymadden/stringmetric](https://github.com/rockymadden/stringmetric) Scala library). The library provides "facilities to perform approximate string matching, measurement of string similarity/distance, indexing by word pronunciation, and sounds-like comparisons", as of the Scala implementation itself.
 
 ## Supported metrics and algorithms (in order of implementation)
